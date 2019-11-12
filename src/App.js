@@ -1,39 +1,9 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import styled from "styled-components";
 
-const Display = styled.div`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-`;
-
-const Button = styled.button`
-  border: 0;
-  padding: 10px;
-  margin: 10px;
-  width: 150px;
-`;
-
-const Attributes = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-
-  color: red;
-  font-size: 24px;
-
-`;
-
-const Attributes2 = styled(Attributes)`
-color: blue;
-`
+import { Display, Button, Attributes, Attributes2 } from "./styles";
 
 function App() {
-
-  
   const [play, setPlay] = useState(0);
   const [draw, setDraw] = useState(0);
 
@@ -60,16 +30,9 @@ function App() {
     <div className="App">
       <Display>
         <Attributes>
-          <p>Play: {play}</p>
-          <p>Draw: {draw}</p>
-        </Attributes>
-
-        <Attributes2>
-          <p>On Play: {p}</p>
-          <p>On Draw: {s}</p>
-        </Attributes2>
-
-        <Attributes>
+          <h1>PLAY</h1>
+          <h2>{play}</h2>
+          <p>{p}</p>
           <Button
             onClick={() => {
               setPlay(play + 1);
@@ -77,7 +40,12 @@ function App() {
           >
             Play
           </Button>
+        </Attributes>
 
+        <Attributes2>
+          <h1>DRAW</h1>
+          <h2>{draw}</h2>
+          <p>{s}</p>
           <Button
             onClick={() => {
               setDraw(draw => draw + 1);
@@ -85,8 +53,7 @@ function App() {
           >
             Draw
           </Button>
-        </Attributes>
-
+        </Attributes2>
       </Display>
     </div>
   );
